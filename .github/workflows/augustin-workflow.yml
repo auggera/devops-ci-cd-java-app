@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          destibution: 'zulu'
+          distibution: 'zulu'
           
       - name: Check out java version.
         run: 'java -version'
