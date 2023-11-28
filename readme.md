@@ -73,4 +73,4 @@ Some basic information about the available endpoints is provided by Swagger at: 
 The logs are created in the `./logs` subfolder. They can be accessed via the endpoint:
 http://localhost:8080/actuator/logfile
 
-new test
+new test workflow
