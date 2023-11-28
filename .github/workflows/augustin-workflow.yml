@@ -1,0 +1,50 @@
+name: Augustin CI
+run-name: ${{ github.actor }} is testing out Github Actions
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Test message.
+        run: echo Hello and lets start!
+
+      - name: Update the package index files on the system.
+        run: apt update
+
+      - name: Set up JDK 17.
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          destibution: 'zulu'
+          
+      - name: Check out java version.
+        run: 'java -version'
+
+      - name: Show dicerctory.
+        run: 'pwd'
+
+      - name: Show file list.
+        run: 'ls -al'
+
+      - name: Install Dependencies.
+        run: 'mvn compile'
+
+      - name: Build applicatione.
+        run: 'mvn package -DskipTests'
+        
+      - name: Test application.
+        run: 'mvn test'
+
+
+
+
+
+        
